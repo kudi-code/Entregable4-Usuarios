@@ -1,7 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
 
-const UsersList = ({users, setUserSelected, deleteUser}) => {
+const UsersList = ({users, setUserSelected, deleteUser, setForm}) => {
 
 
     return(
@@ -9,12 +8,23 @@ const UsersList = ({users, setUserSelected, deleteUser}) => {
             {
                 users.map((user) => {
                     return(
-                        <div key={user.email}>
-                            <h3>{user.first_name} {user.last_name}</h3>
-                            <p className="email">{user.email}</p>
-                            <h4 className="birthday">{user.birthday}</h4>
-                            <button onClick={() => deleteUser(user)}>Borrar</button>
-                            <button onClick={() => setUserSelected(user)} >Editar</button>
+                        <div key={user.email} className="UserCard">
+                            <div className="userCard--text">
+                                <h3>{user.first_name} {user.last_name}</h3>
+                                <p className="email">{user.email}</p>
+                                <h4 className="birthday">{user.birthday}</h4>
+                            </div>
+                            <div className="UserCard--buttons">
+                                <button id="trash" onClick={() => {
+                                    deleteUser(user)
+                                }}><i className="fas fa-trash"></i></button>
+                                <a href="#addUser">
+                                <button id="pencil" onClick={() => 
+                                    {setUserSelected(user)                                        
+                                    setForm(true)
+                                }} ><i className="fas fa-edit"></i></button>
+                                </a>
+                             </div>
                         </div>
                     )
                 })
