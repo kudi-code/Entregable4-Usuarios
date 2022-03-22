@@ -60,7 +60,7 @@ const UsersForm = ({getUsers, userSelected, setUserSelected, setForm}) => {
         <h2>{userSelected !==null ? "Edit User" : "New User"}</h2>
         
                 {/* <label htmlFor="first_name">First Name</label> <br/> */}
-                <i class="fas fa-user"></i>
+                <i className="fas fa-user"></i>
                 <input type="text"
                     onChange={e => setFirst_Name(e.target.value)}
                     //Si hay un cambio en el input, atrapa un evento y setea el valor con el valor del evento
